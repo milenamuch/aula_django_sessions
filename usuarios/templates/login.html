@@ -27,12 +27,12 @@
         <br />
         <form method="POST" action="{% url 'valida_login' %}">
           {% csrf_token %}
-          <label>Email:</label>
+          <label>Nome:</label>
           <input
-            name="email"
+            name="nome"
             type="text"
             class="form-control"
-            placeholder="Digite seu email"
+            placeholder="Digite seu nome"
           />
           <br />
           <label>Senha:</label>
@@ -43,13 +43,12 @@
             placeholder="Digite sua senha"
           />
           <br />
-          <input class="btn btn-success btn-lg" type="submit" value="Login" />
-          <a href = "{%url 'cadastro' %}" class = "btn btn-info btn-lg"> Cadastre-se </a>
+          <input class="btn btn-success btn-lg" type="submit" value="Login"/>
+          
+          <a href = "{% url 'cadastro' %}" class = "btn btn-info btn-lg"> Cadastre-se </a>
         </form>
       </div>
     </div>
   </div>
-
-
 
 {% endblock 'body' %}

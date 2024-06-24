@@ -7,4 +7,4 @@ def home(request):
         return render(request, 'home.html')
     
     else:
-        return redirect('/auth/login/?status=2')
+        return redirect('/auth/login/')
