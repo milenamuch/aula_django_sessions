@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block 'titulo' %}Login{% endblock 'titulo' %}
+
+{% block 'head' %}
+
+{% endblock 'head' %}
+
+{% block 'body' %}
+
+<div class="container">
+    <br />
+    {% if messages %}
+    
+      {% for i in messages  %}
+
+          <div class = 'alert {{i.tags}}' role = 'alert'>
+            {{i}}
+          </div>
+
+      {% endfor %}
+    
+    {% endif %}
+
+    <div class="row">
+      <div class="col-md">
+        <h1>Login</h1>
+        <br />
+        <form method="POST" action="{% url 'valida_login' %}">
+          {% csrf_token %}
+          <label>Email:</label>
+          <input
+            name="email"
+            type="text"
+            class="form-control"
+            placeholder="Digite seu email"
+          />
+          <br />
+          <label>Senha:</label>
+          <input
+            name="senha"
+            type="password"
+            class="form-control"
+            placeholder="Digite sua senha"
+          />
+          <br />
+          <input class="btn btn-success btn-lg" type="submit" value="Login" />
+          <a href = "{%url 'cadastro' %}" class = "btn btn-info btn-lg"> Cadastre-se </a>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock 'body' %}
