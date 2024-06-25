@@ -3,11 +3,13 @@
 
 <div class="container">
   <br />
-  {% if messages %} {% for i in messages %}
+  {%if messages %} 
+    {% for i in messages %}
 
   <div class="alert {{i.tags}}" role="alert">{{i}}</div>
 
-  {% endfor %} {% endif %}
+    {% endfor %} 
+  {% endif %}
   <div class="row">
     <div class="col-md">
       <h1>Cadastre-se</h1>
@@ -21,8 +23,7 @@
           class="form-control"
           placeholder="Digite seu nome"
         />
-        <br />
-
+        <br/>
         <label>Email:</label>
         <input
           name="email"
@@ -30,8 +31,7 @@
           class="form-control"
           placeholder="Digite seu email"
         />
-        <br />
-
+        <br/>
         <label>Senha:</label>
         <input
           name="senha"
@@ -39,8 +39,31 @@
           class="form-control"
           placeholder="Digite sua senha"
         />
-        <br />
-
+        <br/>
+        <label>CEP:</label>
+        <input
+          name="cep"
+          type="text"
+          class="form-control"
+          placeholder="CEP"
+        />
+        <br/>
+        <label>Rua:</label>
+        <input
+          name="rua"
+          type="text"
+          class="form-control"
+          placeholder="Rua"
+        />
+        <br/>
+        <label>Número:</label>
+        <input
+          name="numero"
+          type="text"
+          class="form-control"
+          placeholder="Numero"
+        />
+        <br/>
         <input class="btn btn-success btn-lg" type="submit" value="Enviar" />
         <a href="{%url 'login' %}" class="btn btn-info btn-lg"> Login </a>
       </form>

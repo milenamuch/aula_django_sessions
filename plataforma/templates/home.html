@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block 'body' %}
-    <h1> Testee </h1>
-    <a href= "{% url 'sair' %}" class="btn btn-danger btn-lg">Sair</a>
+    <h1> Olá, {{user.username}}. Você está no sistema </h1>
 
 {% endblock 'body' %}
