@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages, auth
 from  django.contrib.messages import constants
-from django.contrib.auth.models import User
-from .models import EnderecoUsuario
+from .models import Users as User
+from django.contrib.auth import authenticate, login
 
 def login (request):
     if request.user.is_authenticated:
@@ -49,7 +49,7 @@ def valida_cadastro (request):
         usuario.save()
         print('salvou user')
         
-        endereco_cadastro = EnderecoUsuario(cep=cep, rua=rua, numero=numero, usuario=usuario)
+        endereco_cadastro = User(cep=cep, rua=rua, numero=numero, usuario=usuario)
         endereco_cadastro.save()
         print('salvou endereço')
         messages.add_message(request, constants.SUCCESS, 'Usuário cadastrado com sucesso!')
@@ -70,8 +70,10 @@ def valida_login(request):
     
     else:
         auth.login(request, usuario)
-        request.session['logado'] = True
-        return redirect('/plataforma/home')
+        if request.session['logado']:
+            return redirect('/plataforma/home')
+        
+
        
     
 def sair(request):
